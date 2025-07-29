@@ -159,5 +159,18 @@
 
         setTimeout(typeLine, 0);
     </script>
+    <script>
+    const audio = document.getElementById('background-audio');
+    audio.volume = 0.5;
+
+    // Untuk memaksa play jika autoplay diblok oleh browser
+    document.addEventListener('click', () => {
+        audio.play().catch(e => {
+            console.warn("Autoplay diblokir, klik user dibutuhkan untuk play.");
+        });
+    });
+    </script>
+
+    <audio id="background-audio" src="assets/lagu.mp3" autoplay loop></audio>
 </body>
 </html>
